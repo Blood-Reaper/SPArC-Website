@@ -4,7 +4,9 @@ import Card from "../common/Card";
 import Media from "../common/Media";
 import { clubs } from "../../data/clubs";
 
-export default function ClubsPreview() {
+export default function ClubsPreview({ limit = 3 }) {
+  const displayedClubs = limit ? clubs.slice(0, limit) : clubs;
+
   return (
     <section className="section section--dark">
       <div className="container">
@@ -15,7 +17,7 @@ export default function ClubsPreview() {
           ctaTo="/clubs"
         />
         <Stagger className="grid grid-3">
-          {clubs.map((club) => (
+          {displayedClubs.map((club) => (
             <Card to={`/clubs/${club.id}`} transparent key={club.id}>
               <Media label={club.shortName} variant="square" />
               <p style={{ color: "#fff", marginTop: 12, fontSize: 14, fontWeight: 600 }}>{club.name}</p>

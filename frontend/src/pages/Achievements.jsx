@@ -46,7 +46,7 @@ export default function Achievements() {
         </Reveal>
       </section>
 
-      <section className="section">
+      <section className="section journey-section-enhanced">
         <div className="container">
           <SectionHeader
             eyebrow="Year by Year"
