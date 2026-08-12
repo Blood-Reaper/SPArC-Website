@@ -1,0 +1,56 @@
+/* SPArC Animations & motion accents */
+/* ---- Signature motif: ink brushstroke ----------------------------------
+   The one recurring, unmistakable mark. Appears once per page, always near
+   an eyebrow/heading pairing, never as pure decoration — it underlines the
+   idea that everything here is handmade, not templated.                  */
+.stroke{
+  position:absolute; pointer-events:none; z-index:0; opacity:.9;
+}
+.stroke svg{ width:100%; height:100%; display:block; }
+.eyebrow{ display:inline-flex; align-items:center; gap:9px; }
+.eyebrow::before{
+  content:"";
+  width:28px; height:11px; flex-shrink:0;
+  background-color:var(--accent);
+  -webkit-mask-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 40'%3E%3Cpath d='M2 24C14 10 26 6 40 12C52 17 58 28 72 22C82 18 88 10 98 14C99 14.4 99 15 98 15.4C88 20 80 30 66 27C54 24.4 50 14 38 16C26 18 18 26 4 27C2.5 27.1 1 25.4 2 24Z'/%3E%3C/svg%3E");
+  mask-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 40'%3E%3Cpath d='M2 24C14 10 26 6 40 12C52 17 58 28 72 22C82 18 88 10 98 14C99 14.4 99 15 98 15.4C88 20 80 30 66 27C54 24.4 50 14 38 16C26 18 18 26 4 27C2.5 27.1 1 25.4 2 24Z'/%3E%3C/svg%3E");
+  -webkit-mask-size:contain; mask-size:contain; -webkit-mask-repeat:no-repeat; mask-repeat:no-repeat;
+}
+
+/* ---- Hero cinematic layering -------------------------------------------*/
+.hero-media{
+  position:absolute; inset:0; z-index:0;
+  background:
+    radial-gradient(120% 90% at 20% 10%, rgba(15,76,58,0.15), transparent 60%),
+    linear-gradient(180deg, rgba(10,15,13,0.35) 0%, rgba(8,12,10,0.86) 78%),
+    linear-gradient(120deg, #123d2f 0%, #0a2a20 45%, #2b0f1c 100%);
+  background-size:200% 200%;
+  animation: heroDrift 22s ease-in-out infinite alternate;
+}
+@keyframes heroDrift{ 0%{ background-position:0% 30%; } 100%{ background-position:100% 70%; } }
+.hero-grain{ position:absolute; inset:0; z-index:1; opacity:.05; mix-blend-mode:overlay;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+/* Magnetic buttons — subtle pull toward cursor, set via JS */
+.btn[data-magnetic]{ will-change:transform; }
+
+/* Card image zoom-on-hover, used by .media inside a hovered .card */
+.card:hover .media{ }
+.media{ position:relative; }
+.media img{ transition:transform .7s var(--ease); }
+.card:hover .media img{ transform:scale(1.06); }
+
+/* Parallax layers */
+[data-parallax]{ will-change:transform; }
+
+/* Sequential card reveal stagger helper */
+.stagger > *{ opacity:0; transform:translateY(24px); transition:opacity .7s var(--ease), transform .7s var(--ease); }
+.stagger.in-view > *{ opacity:1; transform:translateY(0); }
+.stagger.in-view > *:nth-child(1){ transition-delay:.02s; }
+.stagger.in-view > *:nth-child(2){ transition-delay:.10s; }
+.stagger.in-view > *:nth-child(3){ transition-delay:.18s; }
+.stagger.in-view > *:nth-child(4){ transition-delay:.26s; }
+.stagger.in-view > *:nth-child(5){ transition-delay:.34s; }
+.stagger.in-view > *:nth-child(6){ transition-delay:.42s; }
+.stagger.in-view > *:nth-child(7){ transition-delay:.50s; }

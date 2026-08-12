@@ -1,0 +1,14 @@
+/* ==========================================================================
+   SPArC — Design System
+   Society for Promotion of Art & Culture, Karim City College
+
+   Import order matters: variables first, then base/reset, then layout,
+   then reusable components, then animation/motion accents (which contain
+   a couple of intentional cascade overrides on top of layout/components).
+   ========================================================================== */
+@import "./variables.css";
+@import "./base.css";
+@import "./layout.css";
+@import "./components.css";
+@import "./animations.css";
+@import "./team.css";

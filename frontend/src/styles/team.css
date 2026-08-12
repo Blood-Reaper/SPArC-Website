@@ -1,0 +1,834 @@
+/* ==========================================================================
+   SPArC Team Page Styles
+   ========================================================================== */
+
+/* Institutional Leadership */
+.leadership-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--sp-5);
+  margin-top: var(--sp-4);
+}
+
+.leadership-card {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-top: 4px solid var(--accent);
+  border-radius: var(--radius-m);
+  padding: 36px 32px;
+  display: flex;
+  gap: 24px;
+  align-items: flex-start;
+  box-shadow: var(--shadow-soft);
+  transition: transform 0.4s var(--ease), box-shadow 0.4s var(--ease);
+}
+
+.leadership-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lift);
+}
+
+.leadership-avatar-wrap {
+  position: relative;
+  flex-shrink: 0;
+}
+
+.leadership-avatar-placeholder {
+  width: 84px;
+  height: 84px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--primary-dark) 0%, var(--secondary) 100%);
+  color: var(--accent-light);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid var(--accent);
+  box-shadow: 0 4px 15px rgba(15, 76, 58, 0.25);
+}
+
+.avatar-initials {
+  font-family: var(--font-display);
+  font-size: 26px;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.avatar-photo-tag {
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  opacity: 0.65;
+  margin-top: 2px;
+}
+
+.leadership-avatar-img {
+  width: 84px;
+  height: 84px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid var(--accent);
+}
+
+.leadership-avatar-badge {
+  position: absolute;
+  bottom: -6px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--secondary);
+  color: #fff;
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  padding: 2px 8px;
+  border-radius: 999px;
+  white-space: nowrap;
+  border: 1px solid var(--accent);
+}
+
+.leadership-info {
+  flex: 1;
+}
+
+.leadership-name {
+  font-family: var(--font-display);
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--primary-dark);
+  margin-bottom: 4px;
+}
+
+.leadership-title {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin-bottom: 12px;
+}
+
+.leadership-quote {
+  font-size: 14px;
+  font-style: italic;
+  color: var(--text-soft);
+  line-height: 1.5;
+  border-left: 2px solid var(--accent);
+  padding-left: 12px;
+  margin: 0;
+}
+
+/* Section Header with Year Selector */
+.section-head-with-year {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 20px;
+  margin-bottom: var(--sp-5);
+  flex-wrap: wrap;
+}
+
+.year-selector-wrap {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.year-selector-label {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text-soft);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.year-chips {
+  display: flex;
+  gap: 8px;
+}
+
+.year-chip {
+  padding: 6px 16px;
+  border-radius: 999px;
+  font-size: 13px;
+  font-weight: 600;
+  border: 1px solid var(--line);
+  background: var(--card);
+  color: var(--text);
+  cursor: pointer;
+  transition: all 0.3s var(--ease);
+}
+
+.year-chip.is-active,
+.year-chip:hover {
+  background: var(--secondary);
+  color: #fff;
+  border-color: var(--secondary);
+}
+
+/* PersonCard & Advisory Grid */
+.person-card {
+  text-align: center;
+  padding: 24px;
+  transition: transform 0.4s var(--ease);
+}
+
+.person-card.card-dark {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--line-on-dark);
+  box-shadow: none;
+}
+
+.person-media-wrap {
+  margin-bottom: 16px;
+  display: flex;
+  justify-content: center;
+}
+
+.person-name {
+  font-size: 17px;
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+
+.person-name.text-light {
+  color: #fff;
+}
+
+.person-role-tag {
+  font-size: 13px;
+  color: var(--secondary);
+  font-weight: 500;
+  display: block;
+}
+
+.section--dark .person-role-tag {
+  color: var(--accent);
+}
+
+.person-assignments {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 6px;
+  margin-top: 10px;
+}
+
+.assignment-chip {
+  font-size: 11px;
+  background: rgba(200, 163, 77, 0.15);
+  color: var(--accent);
+  padding: 2px 8px;
+  border-radius: 999px;
+  border: 1px solid rgba(200, 163, 77, 0.3);
+}
+
+/* Advisory Committee Grid */
+.advisory-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--sp-3);
+}
+
+.advisory-card {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-m);
+  padding: 16px 20px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  box-shadow: var(--shadow-soft);
+}
+
+.advisory-avatar-wrap {
+  flex-shrink: 0;
+}
+
+.advisory-avatar-placeholder {
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  background: var(--primary);
+  color: var(--accent-light);
+  font-family: var(--font-display);
+  font-size: 16px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--accent);
+}
+
+.advisory-avatar-img {
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 1px solid var(--accent);
+}
+
+.advisory-details {
+  overflow: hidden;
+}
+
+.advisory-name {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--text);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  margin-bottom: 2px;
+}
+
+.advisory-role {
+  font-size: 12px;
+  color: var(--text-soft);
+  display: block;
+}
+
+/* Activity Mentors Section */
+.mentors-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--sp-4);
+}
+
+.mentor-domain-card {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--line-on-dark);
+  border-radius: var(--radius-m);
+  padding: 28px;
+}
+
+.domain-header {
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+  margin-bottom: 20px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid var(--line-on-dark);
+}
+
+.domain-icon {
+  font-size: 32px;
+  line-height: 1;
+}
+
+.domain-title {
+  font-family: var(--font-display);
+  font-size: 22px;
+  color: var(--accent);
+  margin-bottom: 4px;
+}
+
+.domain-desc {
+  font-size: 13px;
+  color: rgba(250, 247, 242, 0.7);
+  line-height: 1.4;
+}
+
+.mentors-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.mentor-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: rgba(255, 255, 255, 0.04);
+  padding: 10px 14px;
+  border-radius: var(--radius-s);
+}
+
+.mentor-avatar {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: var(--accent);
+  color: var(--primary-dark);
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+}
+
+.mentor-name {
+  font-size: 15px;
+  font-weight: 600;
+  color: #fff;
+  margin-bottom: 1px;
+}
+
+.mentor-role {
+  font-size: 12px;
+  color: var(--accent-light);
+}
+
+/* Committee Groups (Clubs & Bodies) */
+.clubs-grid,
+.bodies-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--sp-4);
+}
+
+.committee-group-card {
+  border-radius: var(--radius-m);
+  padding: 28px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.committee-group-card.is-club {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid var(--line-on-dark);
+}
+
+.committee-group-card.is-body {
+  background: var(--card);
+  border: 1px solid var(--line);
+  box-shadow: var(--shadow-soft);
+}
+
+.group-header {
+  margin-bottom: 20px;
+}
+
+.group-title-tag {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 8px;
+}
+
+.group-type-badge {
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  padding: 3px 10px;
+  border-radius: 999px;
+}
+
+.is-club .group-type-badge {
+  background: rgba(200, 163, 77, 0.2);
+  color: var(--accent);
+  border: 1px solid rgba(200, 163, 77, 0.4);
+}
+
+.is-body .group-type-badge {
+  background: rgba(123, 30, 58, 0.1);
+  color: var(--secondary);
+  border: 1px solid rgba(123, 30, 58, 0.2);
+}
+
+.group-name {
+  font-family: var(--font-display);
+  font-size: 22px;
+  font-weight: 700;
+}
+
+.is-club .group-name {
+  color: #fff;
+}
+
+.is-body .group-name {
+  color: var(--primary-dark);
+}
+
+.group-desc {
+  font-size: 13px;
+  line-height: 1.45;
+  margin-top: 6px;
+}
+
+.is-club .group-desc {
+  color: rgba(250, 247, 242, 0.7);
+}
+
+.is-body .group-desc {
+  color: var(--text-soft);
+}
+
+.group-content {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.block-label {
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  display: block;
+  margin-bottom: 6px;
+}
+
+.is-club .block-label {
+  color: var(--accent);
+}
+
+.is-body .block-label {
+  color: var(--secondary);
+}
+
+.moderator-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 16px;
+  border-radius: 999px;
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.is-club .moderator-chip {
+  background: var(--secondary);
+  color: #fff;
+}
+
+.is-body .moderator-chip {
+  background: var(--primary);
+  color: var(--accent-light);
+}
+
+.moderator-photo-placeholder {
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.moderator-avatar {
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.25);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.moderator-photo-img {
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.member-avatar-placeholder {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: var(--accent);
+  color: var(--primary-dark);
+  font-size: 10px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.is-body .member-avatar-placeholder {
+  background: var(--secondary);
+  color: #fff;
+}
+
+.member-photo-img {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  object-fit: cover;
+  flex-shrink: 0;
+}
+
+/* Chief Editor & Editors Photo Placeholders */
+.chief-editor-avatar-wrap {
+  margin-bottom: 14px;
+  display: flex;
+  justify-content: center;
+}
+
+.chief-editor-avatar-placeholder {
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--secondary), var(--primary-dark));
+  color: var(--accent-light);
+  font-family: var(--font-display);
+  font-size: 24px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid var(--accent);
+}
+
+.chief-editor-img {
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid var(--accent);
+}
+
+.editor-avatar-wrap {
+  margin-bottom: 12px;
+  display: flex;
+  justify-content: center;
+}
+
+.editor-avatar-placeholder {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: var(--secondary);
+  color: #fff;
+  font-family: var(--font-display);
+  font-size: 18px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--accent);
+}
+
+.editor-photo-img {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.members-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 8px 16px;
+}
+
+.member-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+}
+
+.is-club .member-item {
+  color: rgba(250, 247, 242, 0.9);
+}
+
+.is-body .member-item {
+  color: var(--text);
+}
+
+.member-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.is-club .member-dot {
+  background: var(--accent);
+}
+
+.is-body .member-dot {
+  background: var(--secondary);
+}
+
+/* Sparkling Span Editorial Magazine Section */
+.sparkling-span-section {
+  background: linear-gradient(180deg, var(--bg) 0%, #F3EEE4 100%);
+}
+
+.magazine-hero-banner {
+  background: linear-gradient(135deg, var(--primary-dark) 0%, var(--secondary) 100%);
+  color: #fff;
+  border-radius: var(--radius-m);
+  padding: 48px 40px;
+  margin-bottom: var(--sp-6);
+  position: relative;
+  overflow: hidden;
+  box-shadow: var(--shadow-lift);
+  border: 1px solid var(--accent);
+}
+
+.magazine-badge {
+  display: inline-block;
+  background: var(--accent);
+  color: var(--primary-dark);
+  font-size: 11px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  padding: 4px 14px;
+  border-radius: 999px;
+  margin-bottom: 12px;
+}
+
+.magazine-title {
+  font-family: var(--font-display);
+  font-size: clamp(32px, 4vw, 52px);
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: 4px;
+  letter-spacing: -0.01em;
+}
+
+.magazine-subtitle {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--accent-light);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-bottom: 16px;
+}
+
+.magazine-desc {
+  max-width: 680px;
+  font-size: 16px;
+  line-height: 1.6;
+  color: rgba(250, 247, 242, 0.85);
+}
+
+.chief-editor-card {
+  background: var(--card);
+  border: 2px solid var(--accent);
+  border-radius: var(--radius-m);
+  padding: 32px;
+  text-align: center;
+  max-width: 440px;
+  margin: 0 auto var(--sp-5) auto;
+  box-shadow: var(--shadow-soft);
+}
+
+.chief-editor-badge {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--secondary);
+  margin-bottom: 8px;
+}
+
+.chief-editor-name {
+  font-family: var(--font-display);
+  font-size: 26px;
+  font-weight: 700;
+  color: var(--primary-dark);
+  margin-bottom: 4px;
+}
+
+.chief-editor-title {
+  font-size: 14px;
+  color: var(--accent);
+  font-weight: 600;
+}
+
+.editors-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: var(--sp-3);
+}
+
+.editor-card {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-m);
+  padding: 20px 16px;
+  text-align: center;
+  box-shadow: var(--shadow-soft);
+  transition: transform 0.3s var(--ease);
+}
+
+.editor-card:hover {
+  transform: translateY(-4px);
+}
+
+.editor-avatar {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: var(--secondary);
+  color: #fff;
+  font-family: var(--font-display);
+  font-size: 20px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 12px auto;
+}
+
+.editor-name {
+  font-size: 15px;
+  font-weight: 600;
+  margin-bottom: 6px;
+}
+
+.editor-role-chip {
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--primary);
+  background: rgba(15, 76, 58, 0.08);
+  padding: 3px 10px;
+  border-radius: 999px;
+  display: inline-block;
+}
+
+/* Mobile & Tablet Responsiveness */
+@media (max-width: 1024px) {
+  .advisory-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .editors-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .leadership-grid,
+  .mentors-grid,
+  .clubs-grid,
+  .bodies-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .leadership-card {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .leadership-quote {
+    border-left: none;
+    border-top: 2px solid var(--accent);
+    padding-left: 0;
+    padding-top: 8px;
+  }
+
+  .editors-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 480px) {
+  .advisory-grid,
+  .editors-grid,
+  .members-grid {
+    grid-template-columns: 1fr;
+  }
+}
