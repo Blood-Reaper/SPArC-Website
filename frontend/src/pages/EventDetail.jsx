@@ -79,10 +79,14 @@ export default function EventDetail() {
               </p>
             </div>
             <div className="card" style={{ background: "rgba(255,255,255,0.06)", boxShadow: "none", padding: 24 }}>
-              <span className="eyebrow">Registration</span>
-              <Button to="/portal" variant="gold" style={{ marginTop: 10 }}>
-                Register Now
-              </Button>
+              <div>
+                <span className="eyebrow">Registration</span>
+              </div>
+              <div style={{ marginTop: 12 }}>
+                <Button to="/portal" variant="gold">
+                  Register Now
+                </Button>
+              </div>
             </div>
           </Stagger>
         </div>

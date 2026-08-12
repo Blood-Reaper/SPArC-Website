@@ -10,12 +10,17 @@ export default function PageHero({ breadcrumb, title, lede, children, tall = fal
   const parallaxRef = useParallax(0.1);
 
   return (
-    <header className="page-hero" style={{ background: "none", ...(tall ? { minHeight: "70vh" } : {}) }}>
+    <header className="page-hero">
       <div className="hero-media" ref={parallaxRef} />
       <div className="hero-grain" />
       <Reveal as="div" className="container">
         {breadcrumb && <p className="breadcrumb">{breadcrumb}</p>}
         <h1>{title}</h1>
+        <div className="hero-gold-divider">
+          <span className="gold-line" />
+          <span className="gold-diamond">◆</span>
+          <span className="gold-line" />
+        </div>
         {lede && <p className="lede">{lede}</p>}
         {children}
       </Reveal>

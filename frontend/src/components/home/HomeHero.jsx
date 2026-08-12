@@ -9,11 +9,9 @@ export default function HomeHero() {
 
   return (
     <header className="page-hero hero-custom">
-      {/* Background Image Layer with Gradient Overlay */}
-      <div className="hero-backdrop" ref={parallaxRef}>
-        <img src="/image.png" alt="SPArC Art & Culture Backdrop" className="hero-bg-img" />
-        <div className="hero-vignette-overlay" />
-      </div>
+      {/* Signature Animated Gradient & Texture Background */}
+      <div className="hero-media" ref={parallaxRef} />
+      <div className="hero-grain" />
 
       {/* Left Social Icons Sidebar */}
       <div className="hero-social-sidebar">
