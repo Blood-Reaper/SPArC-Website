@@ -1,5 +1,5 @@
-import { useState } from "react";
-import { NavLink, Link } from "react-router-dom";
+import { useState, useEffect } from "react";
+import { NavLink, Link, useLocation } from "react-router-dom";
 import { useScrollState } from "../../hooks/useScrollState";
 
 const LINKS = [
@@ -15,11 +15,56 @@ const LINKS = [
 ];
 
 export default function Navbar() {
-  const { isScrolled } = useScrollState();
+  const { pathname } = useLocation();
+  const { isScrolled: isPastThreshold, isScrollingDown } = useScrollState(40);
+  const [isOverDarkSection, setIsOverDarkSection] = useState(false);
+
+  useEffect(() => {
+    const onScroll = () => {
+      const darkSections = Array.from(document.querySelectorAll('.section--dark, .page-hero, .hero-custom, .site-footer'));
+      let overDark = false;
+      
+      for (const section of darkSections) {
+        const rect = section.getBoundingClientRect();
+        if (rect.top <= 20 && rect.bottom >= 40) {
+          overDark = true;
+          break;
+        }
+      }
+      setIsOverDarkSection(overDark);
+    };
+
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    window.addEventListener("resize", onScroll, { passive: true });
+    
+    return () => {
+      window.removeEventListener("scroll", onScroll);
+      window.removeEventListener("resize", onScroll);
+    };
+  }, [pathname]);
+
+  let navClass = "";
+  if (pathname === "/") {
+    if (!isPastThreshold) {
+      navClass = "is-hero-scrolled"; // transparent, dark text at very top
+    } else if (isOverDarkSection) {
+      navClass = ""; // transparent, white text
+    } else {
+      navClass = "is-scrolled"; // standard beige, dark text when scrolling
+    }
+  } else {
+    navClass = isPastThreshold ? (isOverDarkSection ? "" : "is-scrolled") : "";
+  }
+
+  if (isScrollingDown) {
+    navClass += " is-hidden";
+  }
+
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <nav className={["navbar", isScrolled ? "is-scrolled" : ""].filter(Boolean).join(" ")}>
+    <nav className={["navbar", navClass].filter(Boolean).join(" ")}>
       <div className="container">
         <Link to="/" className="brand">
           <span className="brand-mark">SPArC</span>
@@ -37,7 +82,7 @@ export default function Navbar() {
         </ul>
 
         <div className="nav-actions">
-          <Link to="/portal" className="btn btn-burgundy">
+          <Link to="/portal" className={`btn ${pathname === "/" ? "btn-dark-green" : "btn-burgundy"}`}>
             Join SPArC
           </Link>
           <button

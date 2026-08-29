@@ -142,9 +142,9 @@ export const PEOPLE = {
       { type: "student-leadership", role: "Asst. Chief Organising Secretary", year: "2026–27" }
     ]
   },
-  "harmeet-bawa": {
-    id: "harmeet-bawa",
-    name: "Harmeet Bawa",
+  "harneet-bawa": {
+    id: "harneet-bawa",
+    name: "Harneet Bawa",
     assignments: [
       { type: "student-leadership", role: "Literary Secretary", year: "2026–27" },
       { type: "sparkling-span", role: "Chief Editor" }

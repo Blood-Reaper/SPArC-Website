@@ -1,0 +1,64 @@
+.interactive-hero {
+  position: relative;
+  width: 100%;
+  /* 
+    Approximate full screen for the entrance to SPArC. 
+    100vh handles this. If there's an absolute navbar, this is perfect.
+  */
+  height: 100vh;
+  overflow: hidden;
+  background-color: #ffffff; /* Clean white base matching SPArC identity */
+
+  /* Default CSS vars */
+  --mask-x: 50%;
+  --mask-y: 50%;
+  --mask-size: 0px;
+  
+}
+
+.interactive-hero-layer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.interactive-hero-layer img,
+.interactive-hero-layer video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  pointer-events: none; /* Let pointer events fall through to the section */
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.interactive-hero-base {
+  z-index: 1;
+}
+
+.interactive-hero-reveal {
+  z-index: 2;
+  /* 
+    Soft feathered mask.
+    Fades from fully opaque at the center to transparent at the edge of the circle.
+    The size of the circle is controlled dynamically via --mask-size inline style.
+  */
+  -webkit-mask-image: radial-gradient(
+    circle var(--mask-size) at var(--mask-x) var(--mask-y),
+    rgba(0, 0, 0, 1) 40%,
+    rgba(0, 0, 0, 0) 100%
+  );
+  mask-image: radial-gradient(
+    circle var(--mask-size) at var(--mask-x) var(--mask-y),
+    rgba(0, 0, 0, 1) 40%,
+    rgba(0, 0, 0, 0) 100%
+  );
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  
+  /* Fallback visibility when not interacting */
+  /* If mask is zero, it's transparent anyway, but will just leave it like this. */
+}

@@ -1,3 +1,4 @@
+import InteractiveHero from "../components/home/InteractiveHero";
 import HomeHero from "../components/home/HomeHero";
 import StatsStrip from "../components/home/StatsStrip";
 import AboutPreview from "../components/home/AboutPreview";
@@ -12,6 +13,7 @@ import JoinCta from "../components/home/JoinCta";
 export default function Home() {
   return (
     <>
+      <InteractiveHero />
       <HomeHero />
       <StatsStrip />
       <AboutPreview />

@@ -10,7 +10,7 @@ export const sparklingSpanTeam = {
   description:
     "The flagship annual publication capturing the literary reflections, multilingual poetry, art essays, and cultural archives of Karim City College.",
   chiefEditor: {
-    ...PEOPLE["harmeet-bawa"],
+    ...PEOPLE["harneet-bawa"],
     role: "Chief Editor"
   },
   editors: [

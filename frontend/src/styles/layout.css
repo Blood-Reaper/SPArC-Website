@@ -89,7 +89,11 @@
   right: 0;
   z-index: 100;
   padding: 22px 0;
-  transition: background .4s var(--ease), padding .4s var(--ease), box-shadow .4s var(--ease);
+  transition: transform .4s var(--ease), background .4s var(--ease), padding .4s var(--ease), box-shadow .4s var(--ease);
+}
+
+.navbar.is-hidden {
+  transform: translateY(-100%);
 }
 
 .navbar .container {
@@ -105,6 +109,13 @@
   box-shadow: 0 4px 24px rgba(15, 76, 58, 0.08);
 }
 
+.navbar.is-hero-scrolled {
+  background: transparent;
+  backdrop-filter: none;
+  padding: 22px 0;
+  box-shadow: none;
+}
+
 .brand {
   display: flex;
   flex-direction: column;
@@ -112,7 +123,8 @@
   color: #fff;
 }
 
-.navbar.is-scrolled .brand {
+.navbar.is-scrolled .brand,
+.navbar.is-hero-scrolled .brand {
   color: var(--primary);
 }
 
@@ -145,7 +157,8 @@
   padding: 4px 0;
 }
 
-.navbar.is-scrolled .nav-links a {
+.navbar.is-scrolled .nav-links a,
+.navbar.is-hero-scrolled .nav-links a {
   color: var(--text);
 }
 
@@ -197,7 +210,8 @@
   display: block;
 }
 
-.navbar.is-scrolled .nav-toggle span {
+.navbar.is-scrolled .nav-toggle span,
+.navbar.is-hero-scrolled .nav-toggle span {
   background: var(--text);
 }
 
